@@ -1,0 +1,23 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.Python
+
+# Results (too large for GitHub)
+results/multi_city/*/
+*.npy
+*.pkl
+
+# Logs
+logs/*.out
+logs/*.err
+
+# Data
+data/raw/*.csv
+
+# System
+.DS_Store
+.vscode/

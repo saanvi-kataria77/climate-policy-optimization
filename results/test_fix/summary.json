@@ -1,0 +1,33 @@
+{
+  "experiment": {
+    "name": "test",
+    "city": "nyc",
+    "city_name": "New York City Metro",
+    "archetype": "dense_transit_rich",
+    "timestamp": "2025-12-18 21:12:22.510021"
+  },
+  "config": {
+    "city": "nyc",
+    "w_E": 1.0,
+    "w_G": 2.0,
+    "lambda_term": 8.0,
+    "lr": 0.01,
+    "num_iters": 10,
+    "T": 10,
+    "seed": 42,
+    "output_dir": "results/test_fix",
+    "name": "test",
+    "use_traffic": "false"
+  },
+  "city_params": {
+    "initial_GDP": 1751.0,
+    "initial_emissions": 85.0,
+    "initial_CO2": 420.0,
+    "base_traffic": 15000,
+    "base_transit_share": 0.4,
+    "base_ev_share": 0.08
+  },
+  "training": {
+    "iterations": 10,
+    "final_loss": -11.402017593383789,
+    "best_loss": 

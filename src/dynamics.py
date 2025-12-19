@@ -28,6 +28,7 @@ def update_gdp(state, action, params):
     τ, s, c = action
     
     baseline_growth = 1 + params['g_0']
+    subsidy_cost = 1 - params.get('beta_subsidy_cost', 0.015) * (s ** 2)
     subsidy_benefit = 1 + params['beta_s']*s
     carbon_tax_cost = 1 - params['beta_tau']*τ
     congestion_charge_cost = 1 - params['beta_c']*c
@@ -38,7 +39,7 @@ def update_gdp(state, action, params):
         congestion_cost = params['mobility_elasticity']*state['traffic_congestion']
         mobility_factor = 1 - congestion_cost
     
-    return (G_t * baseline_growth * subsidy_benefit * carbon_tax_cost * 
+    return (G_t * baseline_growth * subsidy_benefit * carbon_tax_cost * subsidy_cost *
             congestion_charge_cost * climate_damage * mobility_factor)
 
 def compute_traffic_metrics(state, action, params):

@@ -28,10 +28,10 @@ CITY=${CITIES[$CITY_IDX]}
 CONFIG=${CONFIGS[$CONFIG_IDX]}
 
 case $CONFIG in
-    "balanced")       W_E=0.5; W_G=3.0; LAMBDA=5.0 ;;
-    "emissions_focus") W_E=1.0; W_G=2.0; LAMBDA=10.0 ;;
-    "growth_focus")   W_E=0.3; W_G=5.0; LAMBDA=3.0 ;;
-    "aggressive")     W_E=0.7; W_G=3.0; LAMBDA=7.0 ;;
+    "balanced")       W_E=1.0; W_G=2.0; LAMBDA=8.0 ;;
+    "emissions_focus") W_E=2.0; W_G=1.5; LAMBDA=12.0 ;;
+    "growth_focus")   W_E=0.5; W_G=3.0; LAMBDA=5.0 ;;
+    "aggressive")     W_E=1.5; W_G=2.0; LAMBDA=10.0 ;;
 esac
 
 echo "City: $CITY, Config: $CONFIG"

@@ -96,12 +96,13 @@ def train(args):
             policies = get_trajectory_policies(policy_params, initial_state, args.T, state_params)
             
             # Policy regularization - penalize extreme policies
-            policy_penalty = jnp.mean(policies ** 2) * 0.5
+            policy_penalty = jnp.mean(policies ** 2) * 2.0
             
+            subsidy_penalty = jnp.mean(policies[:, 1] ** 3) * 1.0
             trajectory = simulate_trajectory(initial_state, policies, params)
             base_loss = compute_loss(trajectory, params, loss_weights)
             
-            return base_loss + policy_penalty
+            return base_loss + policy_penalty + subsidy_penalty
         
         loss_value, grads = jax.value_and_grad(loss_fn)(policy_params)
         updates, opt_state = optimizer.update(grads, opt_state)

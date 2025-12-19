@@ -26,6 +26,8 @@ def policy_network(params, state, state_params):
     h1 = jnp.tanh(x @ params['W1'] + params['b1'])
     h2 = jnp.tanh(h1 @ params['W2'] + params['b2'])
     action = jax.nn.sigmoid(h2 @ params['W3'] + params['b3'])
+
+    action = action.at[1].set(action[1] * 0.6)
     return action
 
 def get_trajectory_policies(policy_params, initial_state, T, state_params):

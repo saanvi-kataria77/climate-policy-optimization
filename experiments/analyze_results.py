@@ -95,7 +95,7 @@ def create_plots(df):
     
     plt.tight_layout()
     plt.savefig(output_dir / 'policy_comparison.png', dpi=300, bbox_inches='tight')
-    print(f"✓ Saved: {output_dir / 'policy_comparison.png'}")
+    print(f" Saved: {output_dir / 'policy_comparison.png'}")
     plt.close()
     
     # Plot 2: Trade-offs
@@ -122,7 +122,7 @@ def create_plots(df):
     
     plt.tight_layout()
     plt.savefig(output_dir / 'tradeoffs.png', dpi=300, bbox_inches='tight')
-    print(f"✓ Saved: {output_dir / 'tradeoffs.png'}")
+    print(f" Saved: {output_dir / 'tradeoffs.png'}")
     plt.close()
     
     # Plot 3: City Comparison Summary
@@ -164,7 +164,7 @@ def create_plots(df):
     
     plt.tight_layout()
     plt.savefig(output_dir / 'city_summary.png', dpi=300, bbox_inches='tight')
-    print(f"✓ Saved: {output_dir / 'city_summary.png'}")
+    print(f" Saved: {output_dir / 'city_summary.png'}")
     plt.close()
 
 def generate_summary(df):
@@ -223,7 +223,7 @@ def generate_summary(df):
     with open(output_dir / "SUMMARY.md", "w") as f:
         f.write(text)
     
-    print(f"✓ Saved: {output_dir / 'SUMMARY.md'}")
+    print(f" Saved: {output_dir / 'SUMMARY.md'}")
     print("\n" + text)
     
     return text
@@ -236,13 +236,13 @@ if __name__ == "__main__":
     # Load data
     print("\nLoading results...")
     df = load_all_results()
-    print(f"✓ Loaded {len(df)} experiments")
+    print(f" Loaded {len(df)} experiments")
     
     # Save CSV
     output_dir = Path("results/analysis")
     output_dir.mkdir(exist_ok=True)
     df.to_csv(output_dir / "all_results.csv", index=False)
-    print(f"✓ Saved: {output_dir / 'all_results.csv'}")
+    print(f" Saved: {output_dir / 'all_results.csv'}")
     
     # Create plots
     print("\nCreating visualizations...")
@@ -253,7 +253,7 @@ if __name__ == "__main__":
     generate_summary(df)
     
     print("\n" + "="*60)
-    print("✓ ANALYSIS COMPLETE!")
+    print(" ANALYSIS COMPLETE!")
     print("="*60)
     print("\nOutputs in: results/analysis/")
     print("  - all_results.csv")

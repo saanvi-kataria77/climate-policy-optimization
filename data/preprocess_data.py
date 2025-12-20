@@ -38,4 +38,4 @@ params = {
 with open('data/processed/parameters.json', 'w') as f:
     json.dump(params, f, indent=2)
 
-print(f"✓ Parameters calibrated: g_0={g_0*100:.2f}%, gamma={gamma:.3f}")
+print(f" Parameters calibrated: g_0={g_0*100:.2f}%, gamma={gamma:.3f}")

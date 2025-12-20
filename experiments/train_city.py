@@ -137,17 +137,14 @@ def train(args):
     
     with open(output_path / 'policy_params.pkl', 'wb') as f:
         pickle.dump(policy_params, f)
-    print(f"  ✓ policy_params.pkl")
     
     with open(output_path / 'losses.json', 'w') as f:
         json.dump(losses, f)
-    print(f"  ✓ losses.json")
     
     final_policies = get_trajectory_policies(policy_params, initial_state, args.T, state_params)
     final_trajectory = simulate_trajectory(initial_state, final_policies, params)
     
     np.save(output_path / 'policies.npy', final_policies)
-    print(f"  ✓ policies.npy")
     
     trajectory_json = []
     for state in final_trajectory:
@@ -156,7 +153,6 @@ def train(args):
     
     with open(output_path / 'trajectory.json', 'w') as f:
         json.dump(trajectory_json, f, indent=2)
-    print(f"  ✓ trajectory.json")
     
     loss_breakdown = compute_loss_components(final_trajectory, params, loss_weights)
     
@@ -212,7 +208,6 @@ def train(args):
     
     with open(output_path / 'summary.json', 'w') as f:
         json.dump(summary, f, indent=2)
-    print(f"  ✓ summary.json")
     
     print(f"\n" + "="*60)
     print("RESULTS")
@@ -229,7 +224,7 @@ def train(args):
     print(f"  c={summary['results']['avg_policies']['c']:.3f}")
     
     print(f"\n" + "="*60)
-    print("✓ COMPLETE!")
+    print(" COMPLETE!")
     print("="*60)
     
     return policy_params, final_policies, final_trajectory, summary
